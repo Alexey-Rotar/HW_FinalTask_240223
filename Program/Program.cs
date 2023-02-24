@@ -35,3 +35,26 @@ string[] CreatingLimitedArray(string[] array)
     }
     return limitedArray;
 }
+
+// Вывод массива
+void OutputingArray(string[] array, string message)
+{
+    Console.WriteLine("\n" + message);
+    Console.Write("[");
+    if (array.Length > 0)
+    {
+    for (int i=0; i<array.Length; i++)
+        if (i<array.Length-1) 
+            Console.Write($"{array[i]}, ");
+        else
+            Console.Write($"{array[i]}]");
+            Console.WriteLine("");
+    }
+    else
+    Console.Write("]\n");
+}
+
+Console.WriteLine("Введите значения массива через пробел, для окончания ввода нажмите Enter:");
+string[] array = CreatingArray();
+OutputingArray(array, "Первоначальный массив:");
+OutputingArray(CreatingLimitedArray(array), "Итоговый массив:");
